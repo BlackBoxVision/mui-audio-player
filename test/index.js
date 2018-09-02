@@ -40,6 +40,14 @@ describe("Actions", () => {
             done();
         });
 
+        it("When calling `playAudio` and player.paused value is false, should return an Object that has a property called `playStatus` with value `pause`.", done => {
+            mockedPlayer = createMockedPlayer({ paused: false });
+            const status = playAudio(mockedPlayer);
+
+            expect(status.playStatus).to.be.equal(Constants.Status.PAUSE);
+            done();
+        });
+
         it("When calling `playAudio` and player.paused value is true, player.paused should be a boolean.", done => {
             mockedPlayer = createMockedPlayer({ paused: true });
             playAudio(mockedPlayer);

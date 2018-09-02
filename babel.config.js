@@ -1,11 +1,12 @@
 "use strict";
 
-module.exports = function (api) {
+module.exports = (api) => {
     api.cache(true);
     
     return {
         presets: [
-            "@babel/preset-env"
+            "@babel/preset-env",
+            "@babel/preset-react"
         ],
         plugins: [
             "@babel/plugin-proposal-class-properties"

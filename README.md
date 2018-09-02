@@ -20,16 +20,30 @@ yarn add mui-audio-player
 
 ## Properties
 
-| Properties    | Types         | Description   |
-| ------------- | ------------- | ------------- |
-| src  | string  | Determines the url used by the player to load the audio source.             | 
-| autoPlay  | boolean  |    Determines if the player starts reproducing the audio automatically.           |
-| rounded  | boolean  |      Determines if the player container has rounded borders.         |
-| elevation  | number  |      Determines if the player container has box-shadow applied.              |
-| width  | string  |    Determines the width of the player.                |
-| height  | string  |    Determines the height of the player.           |
-| classNames  | object  |    Determines the classNames to be applied. (*)          |
+These are the properties used by `AudioPlayer` component:
 
+| Properties    | Types         | Default Value         | Description   |
+| ------------- | ------------- | ------------- | ------------- |
+| src  | string  | none | Determines the url used by the player to load the audio source.             | 
+| autoPlay  | boolean  | false  |  Determines if the player starts reproducing the audio automatically.           |
+| rounded  | boolean  | false |    Determines if the player container has rounded borders.         |
+| elevation  | number  | 1 |      Determines if the player container has box-shadow applied.              |
+| width  | string  |  500px |  Determines the width of the player.                |
+| height  | string  | 45px |   Determines the height of the player.           |
+| classNames  | object  | {} |  Determines the classNames to be applied. (*)          |
+
+(*) `classNames` is a special property:
+
+| Properties    | Types         | keys         | Description   |
+| ------------- | ------------- | ------------- | ------------- |
+| classNames.player  | string  | none |  Determines the className to be applied to the root container.          |
+| classNames.loopIcon  | string  | none |  Determines the classNames to be applied to the loop icon element.         |
+| classNames.playIcon  | string  | none |  Determines the classNames to be applied to the play icon element.        |
+| classNames.muteIcon  | string  | none |  Determines the classNames to be applied to the mute icon element.         |
+| classNames.slider  | string  | none |  Determines the classNames to be applied to the slider element.         |
+| classNames.track  | string  | none |  Determines the classNames to be applied to the track element.        |
+| classNames.thumb  | string  | none |  Determines the classNames to be applied to the thumb element.          |
+| classNames.text  | string  | none |  Determines the classNames to be applied to the text element.          |
 
 ### Usage
 

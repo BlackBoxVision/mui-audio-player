@@ -1,6 +1,6 @@
 {
   "name": "mui-audio-player",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": false,
   "description": "Material-UI based Audio Player",
   "umd": {
@@ -35,14 +35,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/JonatanSalas/library-boilerplate.git"
+    "url": "git+https://github.com/BlackBoxVision/mui-audio-player.git"
   },
   "author": "Jonatan E. Salas (Kid)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/JonatanSalas/library-boilerplate/issues"
+    "url": "https://github.com/BlackBoxVision/mui-audio-player/issues"
   },
-  "homepage": "https://github.com/JonatanSalas/library-boilerplate#readme",
+  "homepage": "https://github.com/BlackBoxVision/mui-audio-player#readme",
   "files": [
     "lib"
   ],

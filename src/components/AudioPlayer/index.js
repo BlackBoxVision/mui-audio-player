@@ -31,6 +31,7 @@ class AudioPlayer extends React.PureComponent {
         height: PropTypes.string,
         rounded: PropTypes.bool,
         classes: PropTypes.object,
+        elevation: PropTypes.number,
         classNames: PropTypes.shape({
             player: PropTypes.string,
             loopIcon: PropTypes.string,
@@ -44,6 +45,7 @@ class AudioPlayer extends React.PureComponent {
     };
 
     static defaultProps = {
+        elevation: 1,
         rounded: false,
         classes: {},
         classNames: {},
@@ -78,7 +80,7 @@ class AudioPlayer extends React.PureComponent {
     }
 
     render() {
-        const { rounded, width, height, src, classes, classNames: { player, loopIcon, playIcon, muteIcon, slider, track, thumb, text } } = this.props;
+        const { rounded, width, height, src, elevation, classes, classNames: { player, loopIcon, playIcon, muteIcon, slider, track, thumb, text } } = this.props;
         const { loopStatus, playStatus, muteStatus, progress, current, duration } = this.state;
 
         const PlayStatusIcon = getIconByPlayerStatus(playStatus);
@@ -87,7 +89,7 @@ class AudioPlayer extends React.PureComponent {
         const isMuteEnable = muteStatus === Player.Status.MUTE;
 
         return (
-            <React.Fragment>
+            <>
                 <audio
                     ref={node => (this.player = node)}
                     controls="true"
@@ -98,8 +100,8 @@ class AudioPlayer extends React.PureComponent {
                 </audio>
                 <Paper
                     className={css(classes["player-grid-container"], player)}
+                    elevation={elevation}
                     square={!rounded}
-                    elevation={1}
                     style={{
                         width,
                         height
@@ -166,7 +168,7 @@ class AudioPlayer extends React.PureComponent {
                         </Grid>
                     </Grid>
                 </Paper>
-            </React.Fragment>
+            </>
         );
     }
 

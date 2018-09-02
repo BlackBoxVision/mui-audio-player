@@ -2,7 +2,7 @@
   "name": "mui-audio-player",
   "version": "1.0.0",
   "private": false,
-  "description": "Library Boilerplate to easy bootstrap project",
+  "description": "Material-UI based Audio Player",
   "umd": {
     "name": "MuiAudioPlayer",
     "globals": {

@@ -21,9 +21,9 @@ export default class App extends React.Component {
     render() {
         return (
             <ThemeProvider theme={theme}>
-                <Grid justify="center" alignContent="center" alignItems="center" container style={{ height: "100vh", backgroundColor: deepPurple["500"] }}>
-                    <Grid md={4} item />
-                    <Grid md={4} item>
+                <Grid spacing={16} justify="center" alignContent="center" alignItems="center" container style={{ height: "100vh", backgroundColor: deepPurple["500"] }}>
+                    <Grid xs={1} sm={1} md={4} lg={4} item />
+                    <Grid xs={10} sm={10} md={4} lg={4} item>
                         <AudioPlayer 
                             src="https://s9.converto.io/download-file/zwXZbmwDyWGN7qkqvVPMcQm0pIajpwdE/file.mp3"
                             autoPlay={false}
@@ -32,7 +32,7 @@ export default class App extends React.Component {
                             width="100%"
                         />
                     </Grid>
-                    <Grid md={4} item />
+                    <Grid xs={1} sm={1} md={4} lg={4} item />
                 </Grid>
             </ThemeProvider>
         );

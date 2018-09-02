@@ -4,8 +4,10 @@ import PropTypes from "prop-types";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import Slider from "@material-ui/lab/Slider";
+import JssProvider from 'react-jss/lib/JssProvider';
 import Typography from "@material-ui/core/Typography";
 import withStyles from "@material-ui/core/styles/withStyles";
+import createGenerateClassName from '@material-ui/core/styles/createGenerateClassName';
 
 import LoopStatusIcon from "@material-ui/icons/Repeat";
 import MuteStatusIcon from "@material-ui/icons/VolumeMute";
@@ -23,6 +25,11 @@ import {
 import Player from './utils/constants';
 
 import styles from "./styles";
+
+const generateClassName = createGenerateClassName({
+    productionPrefix: 'mui-player',
+    dangerouslyUseGlobalCSS: false,
+});
 
 class AudioPlayer extends React.PureComponent {
     static propTypes = {
@@ -50,7 +57,7 @@ class AudioPlayer extends React.PureComponent {
         classes: {},
         classNames: {},
         width: "500px",
-        height: "45px"
+        height: "50px"
     };
 
     state = {
@@ -89,86 +96,88 @@ class AudioPlayer extends React.PureComponent {
         const isMuteEnable = muteStatus === Player.Status.MUTE;
 
         return (
-            <>
-                <audio
-                    ref={node => (this.player = node)}
-                    controls="true"
-                    preload="true"
-                    hidden="true"
-                >
-                    <source src={src} />
-                </audio>
-                <Paper
-                    className={css(classes["player-grid-container"], player)}
-                    elevation={elevation}
-                    square={!rounded}
-                    style={{
-                        width,
-                        height
-                    }}
-                >
-                    <Grid alignItems="center" justify="center" spacing={0} container>
-                        <Grid className={classes["player-centered-grid-item"]} xs={1} item>
-                            <LoopStatusIcon
-                                className={css(classes["player-icon-disabled"], loopIcon, { [classes["player-default-icon"]]: isLoopEnable })}
-                                onClick={() => this.triggerAction(Player.Status.LOOP)}
-                                focusable="true"
-                            />
-                        </Grid>
-                        <Grid className={classes["player-centered-grid-item"]} xs={1} item>
-                            <PlayStatusIcon
-                                className={css(classes["player-default-icon"], classes["player-main-icon"], playIcon)}
-                                onClick={() => this.triggerAction(Player.Status.PLAY)}
-                                focusable="true"
-                            />
-                        </Grid>
-                        <Grid className={classes["player-centered-grid-item"]} xs={1} item>
-                            <MuteStatusIcon
-                                className={css(classes["player-icon-disabled"], muteIcon, { [classes["player-default-icon"]]: isMuteEnable })}
-                                onClick={() => this.triggerAction(Player.Status.MUTE)}
-                                focusable="true"
-                            />
-                        </Grid>
-                        <Grid className={classes["player-centered-grid-item"]} xs={9} item>
-                            <Grid justify="center" spacing={0} direction="row" container>
-                                <Grid className={classes["player-centered-grid-item"]} xs={2} item>
-                                    <Typography
-                                        className={css(classes["player-text-timer"], text)}
-                                        align="center"
-                                        gutterBottom
-                                        noWrap
-                                    >
-                                        {getFormattedTime(current)}
-                                    </Typography>
-                                </Grid>
-                                <Grid className={classes["player-centered-grid-item"]} xs={8} item>
-                                    <Slider
-                                        onChange={(_, progress) => this.handleChange(progress, this.player)}
-                                        classes={{
-                                            root: css(classes["player-slider-container"], slider),
-                                            track: css(classes["player-slider-track"], track),
-                                            thumb: css(classes["player-slider-thumb"], thumb),
-                                        }}
-                                        variant="determinate"
-                                        color="secondary"
-                                        value={progress}
-                                    />
-                                </Grid>
-                                <Grid className={classes["player-centered-grid-item"]} xs={2} item>
-                                    <Typography
-                                        className={css(classes["player-text-timer"], text)}
-                                        align="center"
-                                        gutterBottom
-                                        noWrap
-                                    >
-                                        {getFormattedTime(duration)}
-                                    </Typography>
+            <JssProvider generateClassName={generateClassName}>
+                <>
+                    <audio
+                        ref={node => (this.player = node)}
+                        controls="true"
+                        preload="true"
+                        hidden="true"
+                    >
+                        <source src={src} />
+                    </audio>
+                    <Paper
+                        className={css(classes["player-grid-container"], player)}
+                        elevation={elevation}
+                        square={!rounded}
+                        style={{
+                            width,
+                            height
+                        }}
+                    >
+                        <Grid alignItems="center" justify="center" spacing={0} container>
+                            <Grid xs={1} item>
+                                <LoopStatusIcon
+                                    className={css(classes["player-icon-disabled"], loopIcon, { [classes["player-default-icon"]]: isLoopEnable })}
+                                    onClick={() => this.triggerAction(Player.Status.LOOP)}
+                                    focusable="true"
+                                />
+                            </Grid>
+                            <Grid xs={1} item>
+                                <PlayStatusIcon
+                                    className={css(classes["player-default-icon"], classes["player-main-icon"], playIcon)}
+                                    onClick={() => this.triggerAction(Player.Status.PLAY)}
+                                    focusable="true"
+                                />
+                            </Grid>
+                            <Grid xs={1} item>
+                                <MuteStatusIcon
+                                    className={css(classes["player-icon-disabled"], muteIcon, { [classes["player-default-icon"]]: isMuteEnable })}
+                                    onClick={() => this.triggerAction(Player.Status.MUTE)}
+                                    focusable="true"
+                                />
+                            </Grid>
+                            <Grid xs={9} item>
+                                <Grid justify="center" spacing={0} direction="row" container>
+                                    <Grid xs={2} item>
+                                        <Typography
+                                            className={css(classes["player-text"], text)}
+                                            align="center"
+                                            gutterBottom
+                                            noWrap
+                                        >
+                                            {getFormattedTime(current)}
+                                        </Typography>
+                                    </Grid>
+                                    <Grid xs={8} item>
+                                        <Slider
+                                            onChange={(_, progress) => this.handleChange(progress, this.player)}
+                                            classes={{
+                                                root: css(classes["player-slider-container"], slider),
+                                                track: css(classes["player-slider-track"], track),
+                                                thumb: css(classes["player-slider-thumb"], thumb),
+                                            }}
+                                            variant="determinate"
+                                            color="secondary"
+                                            value={progress}
+                                        />
+                                    </Grid>
+                                    <Grid xs={2} item>
+                                        <Typography
+                                            className={css(classes["player-text"], text)}
+                                            align="center"
+                                            gutterBottom
+                                            noWrap
+                                        >
+                                            {getFormattedTime(duration)}
+                                        </Typography>
+                                    </Grid>
                                 </Grid>
                             </Grid>
                         </Grid>
-                    </Grid>
-                </Paper>
-            </>
+                    </Paper>
+                </>
+            </JssProvider>
         );
     }
 

@@ -24,11 +24,9 @@ const getGreyColor = (theme, opacity) => {
 export default theme => ({
     "player-grid-container": {
         "background-color": theme.palette.background.default,
+        "text-align": "center",
         margin: "0px",
         padding: "4px"
-    },
-    "player-centered-grid-item": {
-        "text-align": "center"
     },
     "player-default-icon": {
         padding: "0px",
@@ -67,7 +65,7 @@ export default theme => ({
     "player-slider-container": {
         width: "auto !important",
         "border-radius": "4px",
-        "margin-top": "4px",
+        "padding-top": "20px",
         height: "9px"
     },
     "player-slider-track": {
@@ -76,7 +74,7 @@ export default theme => ({
     "player-slider-thumb": {
         "background-color": getColor(theme, "secondary")
     },
-    "player-text-timer": {
+    "player-text": {
         color: theme.palette.getContrastText(theme.palette.background.default),
         "margin-top": "10px"
     }

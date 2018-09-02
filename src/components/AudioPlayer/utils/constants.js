@@ -5,7 +5,7 @@ export default {
     },
     Status: {
         PLAY: "play",
-        PAUS: "pause",
+        PAUSE: "pause",
         MUTE: "mute",
         UNMUTE: "unmute",
         LOOP: "loop",

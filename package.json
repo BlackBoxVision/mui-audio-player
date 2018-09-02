@@ -7,12 +7,16 @@
     "name": "MuiAudioPlayer",
     "globals": {
       "react": "React",
-      "prop-types": "PropTypes"
+      "react-dom": "ReactDOM",
+      "prop-types": "PropTypes",
+      "react-lifecycles-compat": "reactLifecyclesCompat"
     }
   },
   "external": [
     "react",
-    "prop-types"
+    "react-dom",
+    "prop-types",
+    "react-lifecycles-compat"
   ],
   "main": "lib/mui-audio-player.cjs.js",
   "module": "lib/mui-audio-player.esm.js",
@@ -70,6 +74,7 @@
     "@material-ui/icons": "^3.0.1",
     "@material-ui/lab": "^3.0.0-alpha.13",
     "prop-types": "^15.6.2",
-    "react": "^16.4.2"
+    "react": "^16.4.2",
+    "react-lifecycles-compat": "^3.0.4"
   }
 }

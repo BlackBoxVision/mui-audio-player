@@ -4,7 +4,7 @@ Material-UI based Audio Player.
 
 ## Installation
 
-You can install this library via NPM or YARN.
+You can install this library via `NPM` or `YARN`.
 
 ### NPM 
 
@@ -47,7 +47,7 @@ These are the properties used by `AudioPlayer` component:
 
 ### Usage
 
-You can check it out the basic usage example. Or: 
+You can check it out the [basic usage example](https://github.com/BlackBoxVision/mui-audio-player/tree/master/examples/basic-usage). Or: 
 
 ```javascript
 import React from 'react';
@@ -91,3 +91,22 @@ export default class App extends React.Component {
     }
 }
 ```
+
+As you can see in the example, this component is pretty well themeable.
+
+## TODO
+
+- Add `volume bar`.
+- Add more tests.
+
+## Issues
+
+If you found a bug, or you have an answer, or whatever. Please, open an [issue](https://github.com/BlackBoxVision/mui-audio-player/issues/new). We will do our best to fix it.
+
+## Contributing
+
+Of course, if you see something that you want to upgrade from this library, or a bug that needs to be solved, PRs are welcome!
+
+## License
+
+Distributed under the MIT license. See [LICENSE](https://github.com/BlackBoxVision/mui-audio-player/blob/master/LICENSE) for more information.

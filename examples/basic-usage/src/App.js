@@ -20,7 +20,7 @@ const theme = createTheme({
 export default class App extends React.Component {
     render() {
         return (
-            <ThemeProvider theme={theme}>
+            <React.Fragment>
                 <Grid spacing={16} justify="center" alignContent="center" alignItems="center" container style={{ height: "100vh", backgroundColor: deepPurple["500"] }}>
                     <Grid xs={1} sm={1} md={4} lg={4} item />
                     <Grid xs={10} sm={10} md={4} lg={4} item>
@@ -34,7 +34,7 @@ export default class App extends React.Component {
                     </Grid>
                     <Grid xs={1} sm={1} md={4} lg={4} item />
                 </Grid>
-            </ThemeProvider>
+            </React.Fragment>
         );
     }
 }

@@ -97,8 +97,9 @@ These are the properties used by the `AudioPlayer` component:
 
 ## TODO
 
-- Add `volume bar`.
-- Add more tests.
+- [ ] Add `volume bar`.
+- [ ] Add more tests.
+- [ ] Add better styles for responsive design.
 
 ## Issues
 

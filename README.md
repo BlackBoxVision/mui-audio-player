@@ -1,6 +1,6 @@
 # MUI Audio Player [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT) [![npm version](https://badge.fury.io/js/mui-audio-player.svg)](https://badge.fury.io/js/mui-audio-player)
 
-Material-UI based Audio Player. Check out the [demo](https://blackboxvision.github.io/mui-audio-player/)
+Material-UI based Audio Player. Check out the [demo](https://blackboxvision.github.io/mui-audio-player/).
 
 ## Installation
 
@@ -84,7 +84,7 @@ These are the properties used by the `AudioPlayer` component:
 
 (*) `classNames` is a special property:
 
-| Properties    | Types         | keys         | Description   |
+| Properties    | Types         | Default Value         | Description   |
 | ------------- | ------------- | ------------- | ------------- |
 | classNames.player  | string  | none |  Determines the className to be applied to the root container.          |
 | classNames.loopIcon  | string  | none |  Determines the classNames to be applied to the loop icon element.         |

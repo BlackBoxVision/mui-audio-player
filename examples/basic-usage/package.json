@@ -8,11 +8,17 @@
     "react-dom": "^16.4.2",
     "react-scripts": "1.1.5"
   },
+  "homepage": "https://blackboxvision.github.io/mui-audio-player/",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -b gh-pages -d build",
     "link": "npm link mui-audio-player",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "gh-pages": "^1.2.0"
   }
 }

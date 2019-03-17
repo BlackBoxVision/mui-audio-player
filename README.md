@@ -1,4 +1,4 @@
-# MUI Audio Player [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT) [![npm version](https://badge.fury.io/js/mui-audio-player.svg)](https://badge.fury.io/js/mui-audio-player)
+# MUI Audio Player [![npm version](https://badge.fury.io/js/%40blackbox-vision%2Fmui-audio-player.svg)](https://badge.fury.io/js/%40blackbox-vision%2Fmui-audio-player) [![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://opensource.org/licenses/MIT) [![Known Vulnerabilities](https://snyk.io/test/github/blackboxvision/mui-audio-player/badge.svg)](https://snyk.io/test/github/blackboxvision/mui-audio-player)
 
 Material-UI based Audio Player. Check out the [demo](https://blackboxvision.github.io/mui-audio-player/).
 
@@ -18,7 +18,7 @@ yarn add @blackbox-vision/mui-audio-player
 
 ### Usage
 
-You can check it out the [basic usage example](https://github.com/BlackBoxVision/mui-audio-player/tree/master/examples/basic-usage). Or:
+The usage is really simple:
 
 ```javascript
 import React from 'react';
@@ -30,7 +30,7 @@ import deepPurple from '@material-ui/core/colors/deepPurple';
 import createTheme from '@material-ui/core/styles/createMuiTheme';
 import ThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 
-import { AudioPlayer } from 'mui-audio-player';
+import { AudioPlayer } from '@blackbox-vision/mui-audio-player';
 
 const theme = createTheme({
   palette: {

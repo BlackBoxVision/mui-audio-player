@@ -4,8 +4,6 @@ Material-UI based Audio Player. Check out the [demo](https://blackboxvision.gith
 
 ## Installation
 
-You can install this library via `NPM` or `YARN`.
-
 ### NPM
 
 ```bash

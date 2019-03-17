@@ -1,6 +1,6 @@
 {
   "name": "@blackbox-vision/mui-audio-player",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "private": false,
   "description": "Material-UI based Audio Player",
   "publishConfig": {

@@ -1,12 +1,22 @@
 import { Grid, Paper, Typography, withStyles } from '@material-ui/core';
-import { Repeat as LoopStatusIcon, VolumeMute as MuteStatusIcon } from '@material-ui/icons';
+import {
+  Repeat as LoopStatusIcon,
+  VolumeMute as MuteStatusIcon,
+} from '@material-ui/icons';
 import { Slider } from '@material-ui/lab';
 import css from 'classnames';
 import React, { Fragment } from 'react';
 import styles from './styles';
-import { attachToEvent, getCurrentTime, getFormattedTime, getIconByPlayerStatus, getPlayerStateFromAction, getProgress, removeFromEvent } from './utils';
+import {
+  attachToEvent,
+  getCurrentTime,
+  getFormattedTime,
+  getIconByPlayerStatus,
+  getPlayerStateFromAction,
+  getProgress,
+  removeFromEvent,
+} from './utils';
 import Player from './utils/constants';
-
 
 export interface AudioPlayerClassNameProps {
   player: string;
@@ -32,7 +42,7 @@ export interface AudioPlayerProps {
 }
 
 class AudioPlayer extends React.Component<AudioPlayerProps> {
-  static displayName = "AudioPlayer";
+  static displayName = 'AudioPlayer';
 
   static defaultProps = {
     elevation: 1,
@@ -118,16 +128,28 @@ class AudioPlayer extends React.Component<AudioPlayerProps> {
         >
           <source src={src} />
         </audio>
-        <Grid className={css(classes['player-container'], player)} elevation={elevation} rounded={rounded} component={Paper} alignContent="center" justify="center" alignItems="center" spacing={8} container>
-          {showLoopIcon && <Grid md={1} item>
-            <LoopStatusIcon
-              className={css(classes['player-icon-disabled'], loopIcon, {
-                [classes['player-default-icon']]: isLoopEnable,
-              })}
-              onClick={() => this.triggerAction(Player.Status.LOOP)}
-              focusable="true"
-            />
-          </Grid>}
+        <Grid
+          className={css(classes['player-container'], player)}
+          elevation={elevation}
+          rounded={rounded}
+          component={Paper}
+          alignContent="center"
+          justify="center"
+          alignItems="center"
+          spacing={8}
+          container
+        >
+          {showLoopIcon && (
+            <Grid md={1} item>
+              <LoopStatusIcon
+                className={css(classes['player-icon-disabled'], loopIcon, {
+                  [classes['player-default-icon']]: isLoopEnable,
+                })}
+                onClick={() => this.triggerAction(Player.Status.LOOP)}
+                focusable="true"
+              />
+            </Grid>
+          )}
           <Grid md={1} item>
             <PlayStatusIcon
               className={css(

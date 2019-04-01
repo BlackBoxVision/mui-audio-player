@@ -9,25 +9,26 @@ import Player from './utils/constants';
 
 
 export interface AudioPlayerClassNameProps {
-    player: string;
-    loopIcon: string;
-    playIcon: string;
-    muteIcon: string;
-    slider: string;
-    track: string;
-    thumb: string;
-    text: string;
+  player: string;
+  loopIcon: string;
+  playIcon: string;
+  muteIcon: string;
+  slider: string;
+  track: string;
+  thumb: string;
+  text: string;
 }
 
 export interface AudioPlayerProps {
-    src: string;
-    width: string;
-    height: string;
-    classes: object;
-    rounded: boolean;
-    autoPlay: boolean;
-    elevation: number;
-    classNames: AudioPlayerClassNameProps;
+  src: string;
+  width: string;
+  height: string;
+  classes: object;
+  rounded: boolean;
+  autoPlay: boolean;
+  elevation: number;
+  showLoopIcon: boolean;
+  classNames: AudioPlayerClassNameProps;
 }
 
 class AudioPlayer extends React.Component<AudioPlayerProps> {
@@ -40,6 +41,7 @@ class AudioPlayer extends React.Component<AudioPlayerProps> {
     classNames: {},
     width: '500px',
     height: '50px',
+    showLoopIcon: true,
   };
 
   player = null;
@@ -80,6 +82,7 @@ class AudioPlayer extends React.Component<AudioPlayerProps> {
       rounded,
       elevation,
       classes,
+      showLoopIcon,
       classNames: {
         player,
         loopIcon,
@@ -116,69 +119,69 @@ class AudioPlayer extends React.Component<AudioPlayerProps> {
           <source src={src} />
         </audio>
         <Grid className={css(classes['player-container'], player)} elevation={elevation} rounded={rounded} component={Paper} alignContent="center" justify="center" alignItems="center" spacing={8} container>
-            <Grid md={1} item>
-              <LoopStatusIcon
-                className={css(classes['player-icon-disabled'], loopIcon, {
-                  [classes['player-default-icon']]: isLoopEnable,
-                })}
-                onClick={() => this.triggerAction(Player.Status.LOOP)}
-                focusable="true"
-              />
-            </Grid>
-            <Grid md={1} item>
-              <PlayStatusIcon
-                className={css(
-                  classes['player-default-icon'],
-                  classes['player-main-icon'],
-                  playIcon
-                )}
-                onClick={() => this.triggerAction(Player.Status.PLAY)}
-                focusable="true"
-              />
-            </Grid>
-            <Grid md={1} item>
-              <MuteStatusIcon
-                className={css(classes['player-icon-disabled'], muteIcon, {
-                  [classes['player-default-icon']]: isMuteEnable,
-                })}
-                onClick={() => this.triggerAction(Player.Status.MUTE)}
-                focusable="true"
-              />
-            </Grid>
-            <Grid md={2} item>
-                <Typography
-                    className={css(classes['player-text'], text)}
-                    align="center"
-                    noWrap
-                >
-                    {getFormattedTime(current)}
-                </Typography>
-            </Grid>
-            <Grid md={5} item>
-                <Slider
-                    onChange={(_, progress) =>
-                      this.handleChange(progress, this.player)
-                    }
-                    classes={{
-                      root: css(classes['player-slider-container'], slider),
-                      track: css(classes['player-slider-track'], track),
-                      thumb: css(classes['player-slider-thumb'], thumb),
-                    }}
-                    variant="determinate"
-                    color="secondary"
-                    value={progress}
-                />
-            </Grid>
-            <Grid md={2} item>
-                <Typography
-                    className={css(classes['player-text'], text)}
-                    align="center"
-                    noWrap
-                >
-                    {getFormattedTime(duration)}
-                </Typography>
-            </Grid>
+          {showLoopIcon && <Grid md={1} item>
+            <LoopStatusIcon
+              className={css(classes['player-icon-disabled'], loopIcon, {
+                [classes['player-default-icon']]: isLoopEnable,
+              })}
+              onClick={() => this.triggerAction(Player.Status.LOOP)}
+              focusable="true"
+            />
+          </Grid>}
+          <Grid md={1} item>
+            <PlayStatusIcon
+              className={css(
+                classes['player-default-icon'],
+                classes['player-main-icon'],
+                playIcon
+              )}
+              onClick={() => this.triggerAction(Player.Status.PLAY)}
+              focusable="true"
+            />
           </Grid>
+          <Grid md={1} item>
+            <MuteStatusIcon
+              className={css(classes['player-icon-disabled'], muteIcon, {
+                [classes['player-default-icon']]: isMuteEnable,
+              })}
+              onClick={() => this.triggerAction(Player.Status.MUTE)}
+              focusable="true"
+            />
+          </Grid>
+          <Grid md={2} item>
+            <Typography
+              className={css(classes['player-text'], text)}
+              align="center"
+              noWrap
+            >
+              {getFormattedTime(current)}
+            </Typography>
+          </Grid>
+          <Grid md={5} item>
+            <Slider
+              onChange={(_, progress) =>
+                this.handleChange(progress, this.player)
+              }
+              classes={{
+                root: css(classes['player-slider-container'], slider),
+                track: css(classes['player-slider-track'], track),
+                thumb: css(classes['player-slider-thumb'], thumb),
+              }}
+              variant="determinate"
+              color="secondary"
+              value={progress}
+            />
+          </Grid>
+          <Grid md={2} item>
+            <Typography
+              className={css(classes['player-text'], text)}
+              align="center"
+              noWrap
+            >
+              {getFormattedTime(duration)}
+            </Typography>
+          </Grid>
+        </Grid>
       </Fragment>
     );
   }
